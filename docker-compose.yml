@@ -7,12 +7,13 @@ services:
       dockerfile: Dockerfile
     image:
       keycloak-django-mozilla
-    ports:
-      - "8085:8080"
+    # ports:
+    #   - "8085:8085"
     volumes:
       - ./app:/oidc-demo/app
       - ./config:/oidc-demo/config
       - ./templates:/oidc-demo/templates
       - ./.env:/oidc-demo/.env
+    network_mode: host
     command: >
-      sh -c "python manage.py migrate && python manage.py runserver 0.0.0.0:8080"
+      sh -c "python manage.py migrate && python manage.py runserver 0.0.0.0:8085"
