@@ -54,9 +54,9 @@ MIDDLEWARE = [
 ]
 
 AUTHENTICATION_BACKENDS = (
-    # 'mozilla_django_oidc.auth.OIDCAuthenticationBackend',
     'auth.CustomOIDCAuthenticationBackend',  # Custom backend
     'django.contrib.auth.backends.ModelBackend',
+    'mozilla_django_oidc.auth.OIDCAuthenticationBackend',
 )
 
 ROOT_URLCONF = 'config.urls'
@@ -154,6 +154,7 @@ OIDC_OP_JWKS_ENDPOINT = env.str('OIDC_OP_JWKS_ENDPOINT')
 OIDC_OP_AUTHORIZATION_ENDPOINT = env.str('OIDC_OP_AUTHORIZATION_ENDPOINT')
 OIDC_OP_TOKEN_ENDPOINT = env.str('OIDC_OP_TOKEN_ENDPOINT')
 OIDC_OP_USER_ENDPOINT = env.str('OIDC_OP_USER_ENDPOINT')
+OIDC_RP_IDP_SIGN_KEY = env.str('OIDC_RP_IDP_SIGN_KEY')
 OIDC_RP_SIGN_ALGO = env.str('OIDC_RP_SIGN_ALGO')
 OIDC_RP_SCOPES = env.str('OIDC_RP_SCOPES')
 OIDC_RP_CLIENT_ID = env.str('OIDC_RP_CLIENT_ID')
@@ -162,3 +163,7 @@ OIDC_TOKEN_USE_BASIC_AUTH = env.bool('OIDC_TOKEN_USE_BASIC_AUTH')
 OIDC_VERIFY_SSL = env.bool('OIDC_VERIFY_SSL')
 OIDC_STORE_ACCESS_TOKEN = env.bool('OIDC_STORE_ACCESS_TOKEN')
 OIDC_STORE_ID_TOKEN = env.bool('OIDC_STORE_ID_TOKEN')
+
+# OIDC_AUTH_URI="http://localhost:8080/realms/Creoox%20SSO%20Demo/protocol/openid-connect/auth"
+# OIDC_AUTHENTICATION_CALLBACK_URL="oidc/callback/"
+# OIDC_CALLBACK_PUBLIC_URI="http://localhost:8085"
